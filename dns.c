@@ -383,7 +383,7 @@ int dnsserver(dns_opt_t *opt) {
   struct sockaddr_in6 si_other;
   int senderSocket = -1;
   senderSocket = socket(AF_INET6, SOCK_DGRAM, IPPROTO_UDP);
-  if (senderSocket == -1) 
+  if (senderSocket == -1)
     return -3;
 
   int replySocket;
