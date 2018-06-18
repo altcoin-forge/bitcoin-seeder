@@ -397,7 +397,7 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"dns0.phore.io", "dns1.phore.io", "dns2.phore.io", "dns3.phore.io", "dns4.phore.io", "dns5.phore.io", ""};
+static const string mainnet_seeds[] = {"seed.nodecircle.io", ""};
 static const string testnet_seeds[] = {""};
 static const string *seeds = mainnet_seeds;
 
@@ -482,6 +482,7 @@ int main(int argc, char **argv) {
         db.ResetIgnores();
     printf("done\n");
   }
+  db.Add(CService("167.99.167.55:18775"), true);
   pthread_t threadDns, threadSeed, threadDump, threadStats;
   if (fDNS) {
     printf("Starting %i DNS threads for %s on %s (port %i)...", opts.nDnsThreads, opts.host, opts.ns, opts.nPort);
